@@ -500,6 +500,10 @@ export class TransactionsListComponent implements OnInit, OnChanges {
     }
   }
 
+  isImageDataUrl(str: string): boolean {
+    return /^data:image\/(jpeg|png|gif|webp);base64,[A-Za-z0-9+/=]+$/.test(str);
+  }
+
   ngOnDestroy(): void {
     this.outspendsSubscription.unsubscribe();
     this.currencyChangeSubscription?.unsubscribe();

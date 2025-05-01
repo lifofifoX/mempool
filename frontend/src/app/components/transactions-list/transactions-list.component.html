@@ -325,6 +325,12 @@
                         <td>OP_RETURN <span>data</span></td>
                         <td style="text-align: left;">{{ vout.scriptpubkey_asm | hex2ascii }}</td>
                       </tr>
+                      <tr *ngIf="vout.scriptpubkey_type == 'op_return' && isImageDataUrl(vout.scriptpubkey_asm | hex2ascii)">
+                        <td>OP_RETURN <span>Image</span></td>
+                        <td style="text-align: left;">
+                          <img [src]="vout.scriptpubkey_asm | hex2ascii" style="max-width: 410px; max-height: 410px;" />
+                        </td>
+                      </tr>
                       <tr *ngIf="vout.scriptpubkey_type">
                         <td i18n="transactions-list.vout.scriptpubkey-type">Type</td>
                         <td style="text-align: left;">{{ vout.scriptpubkey_type.toUpperCase() }}</td>
